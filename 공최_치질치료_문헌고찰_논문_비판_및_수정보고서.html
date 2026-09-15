@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[학술 분석 보고서] 조은별 외(2021) 공최(LU6) 치질치료 문헌고찰 논문 비판 및 수정 제언</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- Mermaid & MathJax -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'neutral',
+      fontFamily: 'Noto Sans KR, sans-serif'
+    });
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    :root {
+      --primary: #1a365d;
+      --primary-light: #2b6cb0;
+      --primary-dark: #0f2444;
+      --accent: #c53030;
+      --accent-bg: #fff5f5;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #2d3748;
+      --text-muted: #718096;
+      --border: #e2e8f0;
+      --border-dark: #cbd5e0;
+      --success: #2f855a;
+      --success-bg: #f0fff4;
+      --warning: #c05621;
+      --warning-bg: #fffaf0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      padding: 50px 60px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+      border: 1px solid var(--border);
+    }
+
+    /* Header */
+    .header {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 25px;
+      margin-bottom: 35px;
+    }
+
+    .badge-bar {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 12px;
+      border-radius: 6px;
+      display: inline-block;
+    }
+
+    .badge-primary { background: #ebf8ff; color: #2b6cb0; border: 1px solid #bee3f8; }
+    .badge-accent { background: #fff5f5; color: #c53030; border: 1px solid #fed7d7; }
+    .badge-neutral { background: #edf2f7; color: #4a5568; border: 1px solid #e2e8f0; }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      line-height: 1.35;
+      margin-bottom: 15px;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px 20px;
+      margin-top: 18px;
+      background: #f7fafc;
+      padding: 16px 20px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+
+    .meta-item strong {
+      color: var(--primary);
+      margin-right: 6px;
+    }
+
+    /* Headings */
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 45px 0 20px 0;
+      padding-left: 14px;
+      border-left: 5px solid var(--primary);
+      display: flex;
+      align-items: center;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #2d3748;
+      margin: 30px 0 14px 0;
+    }
+
+    h4 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #4a5568;
+      margin: 20px 0 10px 0;
+    }
+
+    p {
+      margin-bottom: 16px;
+      color: #334155;
+      text-align: justify;
+    }
+
+    ul, ol {
+      margin-bottom: 20px;
+      padding-left: 24px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    /* Alerts */
+    .alert {
+      padding: 18px 22px;
+      border-radius: 10px;
+      margin: 25px 0;
+      border-left: 5px solid;
+    }
+
+    .alert-important {
+      background: #fff5f5;
+      border-color: #e53e3e;
+      color: #742a2a;
+    }
+
+    .alert-important .alert-title {
+      font-weight: 800;
+      color: #9b2c2c;
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .alert-note {
+      background: #ebf8ff;
+      border-color: #3182ce;
+      color: #2b6cb0;
+    }
+
+    /* Cards / Issue Blocks */
+    .issue-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 28px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .issue-card:hover {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07);
+    }
+
+    .issue-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 14px;
+      border-bottom: 1px solid #edf2f7;
+      padding-bottom: 12px;
+    }
+
+    .issue-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .issue-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      background: #fee2e2;
+      color: #991b1b;
+      white-space: nowrap;
+    }
+
+    .problem-box {
+      background: #fef2f2;
+      border-left: 4px solid #ef4444;
+      padding: 12px 16px;
+      border-radius: 4px;
+      margin: 12px 0;
+      font-size: 0.95rem;
+    }
+
+    .solution-box {
+      background: #f0fdf4;
+      border-left: 4px solid #22c55e;
+      padding: 12px 16px;
+      border-radius: 4px;
+      margin: 12px 0;
+      font-size: 0.95rem;
+    }
+
+    /* Tables */
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 25px 0;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    th {
+      background: #f1f5f9;
+      color: var(--primary);
+      font-weight: 700;
+      padding: 12px 16px;
+      border-bottom: 2px solid var(--border);
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      color: #334155;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+
+    tr:hover {
+      background-color: #f1f5f9;
+    }
+
+    /* Diff code blocks */
+    .diff-block {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+      padding: 20px;
+      border-radius: 10px;
+      overflow-x: auto;
+      margin: 20px 0;
+      line-height: 1.6;
+    }
+
+    .diff-del {
+      color: #f87171;
+      background: rgba(239, 68, 68, 0.15);
+      display: block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin: 2px 0;
+    }
+
+    .diff-add {
+      color: #4ade80;
+      background: rgba(34, 197, 94, 0.15);
+      display: block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin: 2px 0;
+    }
+
+    .diff-ctx {
+      color: #94a3b8;
+      display: block;
+      padding: 2px 8px;
+    }
+
+    /* Print / Utility */
+    .print-bar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+    }
+
+    .btn-print {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+
+    .btn-print:hover {
+      background: var(--primary-light);
+    }
+
+    @media print {
+      body { background: white; padding: 0; }
+      .container { box-shadow: none; border: none; padding: 0; max-width: 100%; }
+      .print-bar { display: none; }
+      .issue-card { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  
+  <div class="print-bar">
+    <button class="btn-print" onclick="window.print()">🖨️ 보고서 인쇄 / PDF 저장</button>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="badge-bar">
+      <span class="badge badge-primary">학술 비평 및 문헌고증 보고서</span>
+      <span class="badge badge-accent">긴급 수정 제언</span>
+      <span class="badge badge-neutral">문서번호: AR-2026-LU6-01</span>
+    </div>
+    <h1>조은별 외(2021) 「공최(LU6)를 활용한 치질치료의 근거에 대한 문헌고찰」 오류 분석 및 수정 제언 보고서</h1>
+    <div class="meta-grid">
+      <div class="meta-item"><strong>대상 논문:</strong> 조은별 외, <i>Korean J Acupunct</i> 2021;38(4):235-249</div>
+      <div class="meta-item"><strong>기반 근거:</strong> 황룡상(黃龍祥) 교수 2011 원저 논문 및 전수 문헌 DB</div>
+      <div class="meta-item"><strong>분석 일자:</strong> 2026년 9월 15일</div>
+      <div class="meta-item"><strong>소속/자료실:</strong> 공최 문헌 연구 자료실</div>
+    </div>
+  </header>
+
+  <!-- Section 1 -->
+  <section>
+    <h2>1. 개요 및 총평 (Executive Summary)</h2>
+    <p>
+      2021년 대한침구학회지에 게재된 조은별 등의 논문은 한·중·일 삼국의 침구 문헌을 조사하여 공최(LU6)의 치질 치료 주치 등장 배경을 추적하고자 한 연구였습니다. 그러나 연구실에 보관된 <strong>황룡상(黃龍祥) 교수의 문헌실증주의 고증 연구(2011)</strong> 및 원전 정밀 대조 결과, 해당 논문은 <strong>문헌학적 층차 오인, 골도분촌의 산술적 착시 간과, 정경혈 공최와 신혈 치점(痔點)의 혼동, 폐-대장 표리설의 사후적 사변 부회 수용</strong>이라는 중대한 학술적 결함을 지니고 있음이 확인되었습니다.
+    </p>
+
+    <div class="alert alert-important">
+      <div class="alert-title">🚨 핵심 결론 요약 (Key Verdict)</div>
+      <p style="margin:0; font-weight: 500;">
+        <strong>"수태음폐경의 정경혈 공최(LU6)가 치질의 치료혈이라는 현대 교과서의 기술은 명백한 학술적 와전(訛傳)이며 가탁(假托)이다."</strong><br>
+        고대 침구 고전 어디에도 공최의 치질 주치는 존재하지 않으며, 1941년 일본 사와다 겐(澤田健)의 척택 하 3횡지 반응점(신혈 치점)이 10촌 골도 착시($10-3=7$)와 1958년 중국 남경 교재 각주 수록을 거쳐 1970년대 한국 교재에 정식 주치로 둔갑한 것입니다. 따라서 정경혈 공최(LU6)의 치질 주치는 <strong>교과서에서 전면 삭제</strong>되어야 합니다.
+      </p>
+    </div>
+
+    <!-- Mermaid Flowchart -->
+    <div style="background: #ffffff; padding: 20px; border-radius: 12px; border: 1px solid var(--border); margin: 25px 0;">
+      <h4 style="text-align: center; margin-bottom: 15px; color: var(--primary);">[그림 1] 공최(LU6) 치질 치료 주치의 역사적 왜곡 전파 경로 (Transmission Chain)</h4>
+      <div class="mermaid">
+        flowchart TD
+          A["일본 사와다 겐(澤田健, 1927~1937)<br/>'독창혈: 척택 하 3횡지' 반응점 취혈"] -->|1941 《침구진수》 수록| B["시로타 분시(代田文誌)<br/>'보통 공최와 다르다'고 명시"]
+          B -->|1958 청단안 중역본 / 1958 남경 《침구학강의》| C["중국 교재 각주에 처음 수록<br/>(정경혈 공최의 주치로 오인 편입)"]
+          C -->|1963 대만 곽가량 《실용중국침구경혈학》| D["대만 교재 '참고/응용'에 소개"]
+          D -->|1971 한국 이수호 《경혈학》 참고란| E["한국 교재 유입"]
+          E -->|1974 《정해침구학》, 1976 《한국침구학》| F["'정식 본문 주치증'으로 둔갑"]
+          F -->|1994, 2016 대한침구학회 《침구의학》, 《경혈학》| G["현대 국가 표준 교재에 고착화<br/>(폐-대장 표리설로 사후 합리화)"]
+
+          style A fill:#e1f5fe,stroke:#0288d1,stroke-width:2px
+          style C fill:#fff9c4,stroke:#fbc02d,stroke-width:2px
+          style F fill:#ffcdd2,stroke:#e53935,stroke-width:2px
+          style G fill:#b71c1c,stroke:#b71c1c,stroke-width:2px,color:#fff
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2 -->
+  <section>
+    <h2>2. 6대 핵심 비판 및 수정 필요 쟁점 심층 분석</h2>
+
+    <!-- Issue 1 -->
+    <div class="issue-card">
+      <div class="issue-header">
+        <div class="issue-title">쟁점 1. 《금침매화시초(金針梅花詩抄)》 판본학적 층차 오인 및 '고전 문헌' 분류 오류</div>
+        <span class="issue-tag">문헌학적 오류</span>
+      </div>
+      <div class="problem-box">
+        <strong>❌ 조은별 외(2021)의 문제점:</strong> 저자 주수동(周樹冬, 1862~1915)의 생몰연대를 들어 《금침매화시초》를 '고전 문헌'으로 분류하고, "고전 문헌 중 중국 《금침매화시초》에 공최의 치질 주치가 처음 등장했다"고 서술함.
+      </div>
+      <div class="solution-box">
+        <strong>💡 실증 근거 및 수정안 (황룡상 교수 고증):</strong> 본서는 사후 67년이 지난 <strong>1982년 손자 주미성(周楣聲)이 정리·발간한 책</strong>입니다. 해당 조문(<i>"痔疾... 亦與尺澤, 列缺諸穴針法相同"</i>)은 주수동의 19세기 원문이 아니라 1980년대 출판 당시 당대 중의학 교재(1958년 이후 공최 치질 주치)의 내용을 편입한 <strong>후대 증보 주석(後人 附刊)</strong>입니다. 따라서 본서를 고전 문헌 목록에서 제외하고 '1982년 현대 정리본'으로 재분류해야 합니다.
+      </div>
+    </div>
+
+    <!-- Issue 2 -->
+    <div class="issue-card">
+      <div class="issue-header">
+        <div class="issue-title">쟁점 2. 전완부 골도분촌법 착종과 '산술적 기하 착시' 규명 결여</div>
+        <span class="issue-tag">골도학적 착시</span>
+      </div>
+      <div class="problem-box">
+        <strong>❌ 조은별 외(2021)의 문제점:</strong> 골도분촌 수치(고대 12.5촌, 일본 10촌, 현대 12촌)를 단순 나열했을 뿐, 왜 '척택 하 3촌'이 '완상 7촌'으로 오인되었는지 수학적 기전을 설명하지 못함.
+      </div>
+      <div class="solution-box">
+        <strong>💡 실증 근거 및 수정안:</strong> 
+        $$\text{[10촌 골도 (일본 사와다파)]}: 10\text{촌} - 3\text{촌} = \mathbf{7\text{촌 (공최 위치와 수치상 일치하는 착시 발생!)}}$$
+        $$\text{[12촌 골도 (WHO 국제표준)]}: 12\text{촌} - 7\text{촌} = \mathbf{5\text{촌 (척택 하 3촌과 무려 4~5cm 공간 괴리 발생!)}}$$
+        즉, 10촌 골도의 산술적 우연($10-3=7$)이 빚어낸 착시였으며, 12촌 골도로 환원된 현대 표준에서 완상 7촌에 치질 주치를 유지하는 것은 심각한 기하학적 모순임을 명시해야 합니다.
+      </div>
+    </div>
+
+    <!-- Issue 3 -->
+    <div class="issue-card">
+      <div class="issue-header">
+        <div class="issue-title">쟁점 3. 사와다 겐(澤田健)의 '독창혈'과 정경혈 공최의 명실상이(名同實異) 및 신혈 '치점' 혼동</div>
+        <span class="issue-tag">정혈 왜곡 조장</span>
+      </div>
+      <div class="problem-box">
+        <strong>❌ 조은별 외(2021)의 문제점:</strong> 결론에서 "치질에 공최를 활용할 경우 표준 위치보다 척택에 가깝게 취혈해야 한다"고 하여, 정경혈 공최의 표준 위치를 자의적으로 변형시키는 절충안을 제시함.
+      </div>
+      <div class="solution-box">
+        <strong>💡 실증 근거 및 수정안:</strong> 《침구진수》 원문에서 시로타 분시는 <i>"보통 책의 공최는 효과가 없고 척택 하 3횡지 처라야 묘효가 있다"</i>고 명시했습니다. 이는 정경혈 공최가 아니라 현대 임상에서 발굴된 <strong>신혈 '치점(痔點)'(척택 하 3촌 부위)</strong>에 해당합니다. 사와다 겐의 혈위는 '이름만 공최일 뿐 실체는 다른 기혈(名同實異)'이므로, 정경혈 공최의 주치에서 치질을 배제하고 신혈 '치점'으로 독립 분리해야 합니다.
+      </div>
+    </div>
+
+    <!-- Issue 4 -->
+    <div class="issue-card">
+      <div class="issue-header">
+        <div class="issue-title">쟁점 4. '폐-대장 표리관계' 및 '극혈(郄穴)' 이론의 사후적 사변 부회(附會) 무비판 수용</div>
+        <span class="issue-tag">기전론적 허구성</span>
+      </div>
+      <div class="problem-box">
+        <strong>❌ 조은별 외(2021)의 문제점:</strong> 폐-대장 표리관계와 극혈의 혈증 조절 기능을 치질 치료의 타당한 이론적 배경으로 수용적으로 기술함.
+      </div>
+      <div class="solution-box">
+        <strong>💡 실증 근거 및 수정안:</strong> 고대 침구학의 치질 치료는 독맥(GV), 족태양방광경(BL), 족태음비경(SP) 등 실제 항문과 연계된 경맥으로 이루어졌습니다. 사와다 겐이 척택 아래에서 우연히 발견한 압통점을 장부표리설에 끼워 맞춘 것은 <strong>사후적 사변 부회(Post-hoc rationalization)</strong>에 불과합니다. 만약 이 논리가 성립한다면 폐경의 모든 혈위가 치질 치료혈이 되어야 하는 모순이 발생합니다.
+      </div>
+    </div>
+
+    <!-- Issue 5 -->
+    <div class="issue-card">
+      <div class="issue-header">
+        <div class="issue-title">쟁점 5. 한·중·일 침구 교재의 '와전 전파 경로' 분석 불철저 및 한국 교재 비판 결여</div>
+        <span class="issue-tag">학술사적 비판 결여</span>
+      </div>
+      <div class="problem-box">
+        <strong>❌ 조은별 외(2021)의 문제점:</strong> 전파 경로를 단순 연대기적으로 나열하여, 한국 교재가 어떠한 경로로 오류를 정식 주치로 고착화했는지 비판적 분석이 결여됨.
+      </div>
+      <div class="solution-box">
+        <strong>💡 실증 근거 및 수정안:</strong> 중국은 4·5판 및 최근 교재에서 치질 주치를 삭제하거나 부차적 가감혈로 제한하는 자정 노력을 거쳤습니다. 그러나 한국은 1971년 이수호 교재의 참고란에 있던 내용을 1974년 《정해침구학》, 1976년 《한국침구학》이 <strong>무비판적으로 '본문 정식 주치증'으로 격상</strong>시켰고, 2020년 현대 교과서에 이르기까지 무비판적으로 복제·답습해온 학술적 과오를 반성적으로 규명해야 합니다.
+      </div>
+    </div>
+
+    <!-- Issue 6 -->
+    <div class="issue-card">
+      <div class="issue-header">
+        <div class="issue-title">쟁점 6. 결론(Conclusion)의 절충주의적 한계와 공최 치질 주치 전면 삭제 제언</div>
+        <span class="issue-tag">결론 방향 수정</span>
+      </div>
+      <div class="problem-box">
+        <strong>❌ 조은별 외(2021)의 문제점:</strong> 연구진 내부 회의록(<i>0513 회의.docx</i>)의 <i>"결론: 공최가 치질의 요혈이라는 것은 정당화될 수 없다"</i>는 합의를 뒤엎고, 논문 결론에서 어정쩡한 절충안으로 후퇴함.
+      </div>
+      <div class="solution-box">
+        <strong>💡 실증 근거 및 수정안:</strong> 결론을 명확히 수정하여 <strong>"공최(LU6)의 치질 치료 주치는 문헌적·실증적 근거가 없는 명백한 와전(讹传)이므로 교과서에서 전면 삭제되어야 하며, 전완부 반응점은 신혈 '치점(痔點)'으로 분리 기술해야 한다"</strong>로 단호하게 명시해야 합니다.
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3 -->
+  <section>
+    <h2>3. 논문 구성 요소별 구체적 수정 대비표 (Section-by-Section Matrix)</h2>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 15%;">구성 항목</th>
+            <th style="width: 35%;">2021년 기출판본 내용</th>
+            <th style="width: 35%;">수정 및 보완 제안 내용 (개정안)</th>
+            <th style="width: 15%;">학술적 근거</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>[서론]</strong><br>(p.236)</td>
+            <td>"국내 한의계에서 공최를 치질에 활용하고 있으나 문헌 출처가 명확하지 않다."</td>
+            <td>"현대 교과서의 공최 치질 주치는 고전 의서에 근거가 전무하며, 20세기 초 일본 사와다파의 기혈이 정경혈 공최로 와전(訛傳)된 학술사적 오류임을 실증적으로 규명하고자 한다."</td>
+            <td>연구 목적을 '와전의 실체 규명 및 교과서 개정'으로 명확화</td>
+          </tr>
+          <tr>
+            <td><strong>[대상 및 방법]</strong><br>(p.236)</td>
+            <td>《금침매화시초》를 1862~1915년 저술로 보아 <strong>고전 문헌</strong>으로 분류.</td>
+            <td>《금침매화시초》를 고전 문헌에서 제외하고 <strong>'1982년 현대 정리본'</strong>으로 재분류.</td>
+            <td>1982년 주미성 정리본의 판본학적 층차 반영</td>
+          </tr>
+          <tr>
+            <td><strong>[결과: Table 1]</strong><br>(p.239~240)</td>
+            <td>골도분촌 수치(10, 12, 12.5) 단순 병렬 나열.</td>
+            <td>'척택으로부터의 실제 해부학적 거리(cm 환산)' 열을 추가하여 10촌 골도와 12촌 골도 간의 공간 변위($\Delta \approx 4\sim 5\text{cm}$) 시각화.</td>
+            <td>산술적 기하 착시의 수학적 입증</td>
+          </tr>
+          <tr>
+            <td><strong>[결과: Table 2]</strong><br>(p.241~242)</td>
+            <td>《금침매화시초》(1862~1915)에 "痔疾, 如痔痛, 痔出血 등"을 고전 주치로 기재.</td>
+            <td>발행연도를 <strong>1982년</strong>으로 수정하고, 해당 조문이 '후대 주미성 증보 주석'임을 Note로 명기.</td>
+            <td>시대착오적 인용 오류 교정</td>
+          </tr>
+          <tr>
+            <td><strong>[고찰: 취혈법]</strong><br>(p.245)</td>
+            <td>"표준 위치보다 척택에 가깝게 반응점을 찾아 취혈하는 것이 바람직하다."</td>
+            <td><strong>"사와다 겐의 혈위는 정경혈 공최가 아니라 신혈 '치점(痔點)'에 해당하므로 표준 공최와 완전히 분리해야 한다. 정경혈 위치를 임의로 척택 쪽으로 이동시키는 것은 정위 왜곡이다."</strong></td>
+            <td>경혈 표준화 원칙 수호 및 신혈 분리</td>
+          </tr>
+          <tr>
+            <td><strong>[고찰: 기전론]</strong><br>(p.245~246)</td>
+            <td>폐-대장 표리관계와 극혈 기전을 수용적으로 설명.</td>
+            <td><strong>"폐-대장 표리관계 설명은 사와다 겐이 임의로 취혈한 압통점을 장부표리설에 끼워 맞춘 사변적 부회(附會)에 불과하며 경락학적 근거가 결여되어 있다."</strong></td>
+            <td>사변적 가탁 비판</td>
+          </tr>
+          <tr>
+            <td><strong>[결론 6항]</strong><br>(p.247)</td>
+            <td>"사와다 겐의 공최와 표준 공최를 구분해야 하며, 척택에 가깝게 반응점을 취혈해야 한다."</td>
+            <td><strong>"공최(LU6)는 치질 치료혈로 정당화될 수 없으며 교과서 주치에서 삭제되어야 한다. 전완부 반응점은 신혈 '치점(痔點)'으로 엄격히 분리하여 적용해야 한다."</strong></td>
+            <td>내부 회의록 합의사항 최종 반영</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Section 4 -->
+  <section>
+    <h2>4. 한의과대학 표준 교과서 개정 제언안 (Textbook Revision Draft)</h2>
+    <p>전국 한의과대학 표준 교재(《경혈학》, 《침구의학》)의 공최(LU6) 조문을 다음과 같이 개정할 것을 공식 제언합니다.</p>
+
+    <div class="diff-block">
+<span class="diff-ctx">[수태음폐경 - 공최 (孔最, LU6)]</span>
+<span class="diff-del">- 【주치】 해수, 기천, 객혈, 인후종통, 실음, 주비연통, 치질(痔疾), 치창출혈(痔瘡出血).</span>
+<span class="diff-add">+ 【주치】 객혈, 해수, 기천, 인후종통, 실음 등 폐계(肺系) 병증; 주비연통(肘臂攣痛), 주비냉통.</span>
+<span class="diff-ctx">+ </span>
+<span class="diff-add">+ 【학술 고증 및 주석(Note)】</span>
+<span class="diff-add">+ ※ 치질(痔疾) 주치의 와전(訛傳)에 대한 고증:</span>
+<span class="diff-add">+ 근현대 일부 교재에 수록된 '치질, 치창출혈' 주치는 전통 한의 고전(《침구갑을경》~《침구대성》 등)에는 존재하지 않는 내용이다.</span>
+<span class="diff-add">+ 이는 20세기 초 일본 사와다 겐(澤田健, 《침구진수》)이 척택 아래 3횡지(동신촌 약 2~3촌) 부위의 체표 반응점(신혈 '치점 痔點')에 자침하여 치질을 다스렸던 경험혈을 정경혈 공최(완상 7촌 / 12촌 골도 기준 척택 하 5촌)로 오인하여 명명한 것에서 기인하였다.</span>
+<span class="diff-add">+ 이후 10촌 골도 체계(10 - 3 = 7)의 산술적 착시와 1958년 중국 남경 교재의 각주 수록을 거쳐 1970년대 한국 침구 교재에 무비판적으로 본문 주치로 수용된 학술적 와전이다.</span>
+<span class="diff-add">+ 따라서 정경혈 공최(LU6)의 본래 주치에서 치질은 제외하며, 전완부 치질 반응점은 신혈 '치점(痔點)' 또는 경외기혈 '이백(EX-UE2)'으로 분리하여 적용한다.</span>
+    </div>
+  </section>
+
+  <!-- Section 5 -->
+  <section>
+    <h2>5. 참고 문헌 및 자료실 근거 목록</h2>
+    <ol style="font-size: 0.9rem; color: #4b5563;">
+      <li><strong>황룡상(黃龍祥), 황유민(黃幼民)</strong>. 《孔最治痔的讹传及其对当代针灸学的影响》. 针刺研究 (<i>Acupuncture Research</i>), 2011;36(5):377-379.</li>
+      <li><strong>황룡상(黃龍祥)</strong>. 《중국침구학술사대강 (中國鍼灸學術史大綱)》. 화하출판사, 2001 (한국어역: 법인문화사, 2007).</li>
+      <li><strong>황룡상(黃龍祥)</strong>. 《침구수혈통고 (鍼灸腧穴通考)》. 인민위생출판사, 2011.</li>
+      <li><strong>시로타 분시 (代田文誌)</strong>. 《鍼灸眞髓 (침구진수)》. 1941 (중국어역: 承淡安·承莘农 譯, 강소인민출판사, 1958).</li>
+      <li><strong>주수동(周樹冬) 저, 주미성(周楣聲) 집</strong>. 《金針梅花詩抄 (금침매화시초)》. 안휘과학기술출판사, 1982:160.</li>
+      <li><strong>곽가량(郭家樑)</strong>. 《實用中國鍼灸經穴學 (실용중국침구경혈학)》. 대만, 1963.</li>
+      <li><strong>이수호(李秀鎬)</strong>. 《經穴學 (경혈학)》. 행림서원, 1971:18.</li>
+      <li><strong>이용규(李容揆)</strong>. 《韓國鍼灸學 (한국침구학)》. 1976.</li>
+      <li><strong>장소량(张小良) 외</strong>. 《上肢穴位注射治疗痔疮120例》. 中西医结合杂志, 1988;8(8):501.</li>
+      <li><strong>유진동(刘振东)</strong>. 《针刺“痔疮穴”治疗痔疮》. 山东医药, 1990;30(6):45.</li>
+      <li><strong>공최 연구팀 내부 자료</strong>: <code>0513 회의.docx</code>, <code>문헌, 논문 요약 및 출처 정리.docx</code>, <code>문헌 정리.xlsx</code>, <code>Cheng Dan an/1-2) 침구진수 굴장 번역.docx</code>.</li>
+    </ol>
+  </section>
+
+</div>
+
+</body>
+</html>
